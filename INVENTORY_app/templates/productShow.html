@@ -1,0 +1,36 @@
+{% extends "productBase.html" %}
+{% block title %}ProductShow{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="w-full h-full flex flex-col justify-center items-center text-white">
+        <div class="w-fit h-fit p-5 mx-10 bg-gray-800/50 flex flex-col items-center  rounded-md">
+            <p class="my-3 text-3xl font-bold">Inventory</p>
+            <table class="mx-auto w-[90%] mb-5 text-left rtl:text-right table-fixed">
+                <thead class="text-xl bg-neutral-secondary-soft border-b rounded-base border-default bg-white/20">
+                    <tr class="text-bold">
+                    <th scope="col" class="px-6 py-3 font-medium">PID</th>
+                    <th scope="col" class="px-6 py-3 font-medium">Product Name</th>
+                    <th scope="col" class="px-6 py-3 font-medium">Price</th>
+                    <th scope="col" class="px-6 py-3 font-medium">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody class="text-md">
+                    {% for user in products %}
+                        <tr class="even:bg-white/20 bg-neutral-primary border-b border-default">
+                            <td class="px-6 py-4">{{ user.pid}}</td>
+                            <td class="px-6 py-4">{{ user.pname | title}}</td>
+                            <td class="px-6 py-4">{{ user.price}}</td>
+                            <td class="px-6 py-4">{{ user.qty}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+{% endblock %}

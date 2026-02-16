@@ -1,0 +1,18 @@
+{% extends "user/userBase.html" %}
+{% block title %}UserShow{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="w-full h-full flex flex-col justify-center items-center">
+        {% for user in users %}
+            <div class="flex justify-evenly items-center">
+                {{ user.name }} {{ user.email }}
+            </div>      
+        {% endfor %}
+    </div>
+    
+{% endblock %}
